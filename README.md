@@ -1,4 +1,5 @@
 # Isaac Client README
+为实现"数据采集"-"训练格式转换"-"使用训练策略展示推理"链路，完成了6个脚本（最终只需4个，另外2个为检查相机与确认数据格式正确）
 infer_runs为使用run_isaac_client_with_rag_and_wrist推理展示客户端的一次推理结果，准确率为90%（共20ep，失败2次）
 推理策略使用collect_scripted_rollout_dataset采集的200ep微调训练的pi0.5
 - paligemma_variant="gemma_2b_lora",
