@@ -1,0 +1,15 @@
+{
+  "episode_idx": 10,
+  "prompt": "lift the cube",
+  "steps_executed": 150,
+  "reward_last": 0.010958096943795681,
+  "reward_max": 0.32612916827201843,
+  "reward_mean": 0.011812201688929538,
+  "max_lift_delta_z": 0.0,
+  "terminated_any": false,
+  "truncated_any": false,
+  "success_by_lift_threshold": false,
+  "success_lift_threshold": 0.03,
+  "main_video_path": "/root/gpufree-data/isaac_client/infer_runs_08/run_20260422_190739/episode_00010/main.mp4",
+  "wrist_video_path": "/root/gpufree-data/isaac_client/infer_runs_08/run_20260422_190739/episode_00010/wrist.mp4"
+}
