@@ -1,51 +1,14 @@
 # Isaac Client README
 infer_runs为使用run_isaac_client_with_rag_and_wrist推理展示客户端的一次推理结果，准确率为90%（共20ep，失败2次）
 推理策略使用collect_scripted_rollout_dataset采集的200ep微调训练的pi0.5
-TrainConfig(
-    name="pi05_isaac_lift_scripted_v2",
-    model=pi0_config.Pi0Config(
-        pi05=True,
-        action_horizon=10,
-        discrete_state_input=False,
-        paligemma_variant="gemma_2b_lora",
-        action_expert_variant="gemma_300m_lora",
-    ),
-    data=LeRobotLiberoDataConfig(
-        repo_id="/root/gpufree-data/isaac_client/datasets/lerobot_v21_export_scripted_v3",
-        base_config=DataConfig(
-            prompt_from_task=True,
-        ),
-        extra_delta_transform=False,
-        assets=AssetsConfig(
-            asset_id="isaac_lift_scripted_v2",
-        ),
-    ),
-    weight_loader=weight_loaders.CheckpointWeightLoader(
-        "gs://openpi-assets/checkpoints/pi05_base/params"
-    ),
-    freeze_filter=pi0_config.Pi0Config(
-        pi05=True,
-        action_horizon=10,
-        discrete_state_input=False,
-        paligemma_variant="gemma_2b_lora",
-        action_expert_variant="gemma_300m_lora",
-    ).get_freeze_filter(),
-    batch_size=2,
-    num_workers=0,
-    num_train_steps=12000,
-    log_interval=50,
-    save_interval=4000,
-    keep_period=4000,
-    lr_schedule=_optimizer.CosineDecaySchedule(
+- paligemma_variant="gemma_2b_lora",
+- action_expert_variant="gemma_300m_lora",
+- batch_size=2,num_workers=0,num_train_steps=12000,log_interval=50,
+- lr_schedule=_optimizer.CosineDecaySchedule(
         warmup_steps=200,
         peak_lr=1e-5,
         decay_steps=4000,
-        decay_lr=1e-5,
-    ),
-    optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
-    ema_decay=None,
-    )
-]
+        decay_lr=1e-5,）
 - 以下按顺序包含脚本介绍、执行逻辑以及常用指令
 
 ## 当前脚本
