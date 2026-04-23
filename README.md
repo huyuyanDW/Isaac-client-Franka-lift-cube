@@ -1,5 +1,4 @@
 # Isaac Client README
-脚本及训练推理相关信息优化版
 为完整实现“数据采集—训练格式转换—使用训练策略展示推理”的全流程链路，本次共开发6个脚本，其中4个为核心执行脚本，另外2个为辅助脚本（用于相机检查与数据格式校验）。
 infer_runs为通过run_isaac_client_with_rag_and_wrist推理展示客户端得到的一次推理结果，推理准确率达90%（共执行20个episode，失败2次）。本次推理所采用的策略，是基于collect_scripted_rollout_dataset脚本采集的200个episode数据，对pi0.5进行微调训练后得到的。
 相关核心参数设置如下：
